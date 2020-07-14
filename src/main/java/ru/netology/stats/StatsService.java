@@ -13,8 +13,6 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-
     public long totalSales(long[]salesData) {
         long sum = 0;
         for (long sales : salesData) {
@@ -24,24 +22,11 @@ public class StatsService {
     }
 
     public long monthAverageSales(long[] salesData) {
-        long sum = 0;
-        for (long sales : salesData) {
-            sum += sales;
-        }
+        long sum = totalSales(salesData);
         return sum/12;
     }
 
     public long maxSales(long[] salesData) {
-//        long currentMax = salesData[0];
-//        int numberMonth = 0;  // номер месяца
-//        for (long sales : salesData) {
-//            if (currentMax < sales) {
-//                currentMax = sales;
-//                numberMonth = numberMonth + 1;
-//            }
-//
-//        }
-//        return numberMonth;
         long currentMax = salesData[0];
         int numberMonth = 0;  // номер месяца
         for (int i = 0; i < salesData.length; i++) {
@@ -54,16 +39,6 @@ public class StatsService {
     }
 
     public long minSales(long[] salesData) {
-//        long currentMin = salesData[0];
-//        int numberMonth = 0;  // номер месяца
-//        for (long sales : salesData) {
-//            if (currentMin > sales) {
-//                currentMin = sales;
-//                numberMonth+=1;
-//            }
-//        }
-//        return numberMonth;
-
         long currentMin = salesData[0];
         int numberMonth = 0;  // номер месяца
         for (int i = 0; i < salesData.length; i++) {
@@ -76,24 +51,25 @@ public class StatsService {
     }
 
     public long numberMonthsBelowAverage(long[] salesData) {
-        StatsService Service = new StatsService();
-        long averageSum = Service.monthAverageSales(salesData); // средние продажи
+//        StatsService service = new StatsService();
+//        long averageSum = service.monthAverageSales(salesData);
+        long averageSum = monthAverageSales(salesData); // средние продажи
+
         int number = 0;  // количество месяцев
         for (long sales : salesData) {
             if (averageSum > sales) {  // продажи ниже среднего
-                number+=1;
+                number++;
             }
         }
         return number;
     }
 
     public long numberMonthsAboveAverage(long[] salesData) {
-        StatsService Service = new StatsService();
-        long averageSum = Service.monthAverageSales(salesData); // средние продажи
+        long averageSum = monthAverageSales(salesData); // средние продажи
         int number = 0;  // количество месяцев
         for (long sales : salesData) {
             if (averageSum < sales) {  // продажи выше среднего
-                number+=1;
+                number++;
             }
         }
         return number;

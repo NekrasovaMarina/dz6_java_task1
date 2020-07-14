@@ -9,56 +9,56 @@ class StatsServiceTest {
 
     @Test
     void shouldTotalSales() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 180;
-        long actual = Service.totalSales(salesData);
+        long actual = service.totalSales(salesData);
         assertEquals(expected,actual);
         }
 
 
     @Test
     void shouldmonthAverageSales() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 180/12;
-        long actual = Service.monthAverageSales(salesData);
+        long actual = service.monthAverageSales(salesData);
         assertEquals(expected,actual);
     }
 
     @Test
     void shouldMaxSales() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 8; // номер месяца
-        long actual = Service.maxSales(salesData);
+        long actual = service.maxSales(salesData);
         assertEquals(expected,actual);
     }
 
     @Test
     void shouldMinSales() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 9; // номер месяца
-        long actual = Service.minSales(salesData);
+        long actual = service.minSales(salesData);
         assertEquals(expected,actual);
     }
 
     @Test
     void shouldNumberMonthsBelowAverage() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 5;
-        long actual = Service.numberMonthsBelowAverage(salesData);
+        long actual = service.numberMonthsBelowAverage(salesData);
         assertEquals(expected,actual);
     }
 
     @Test
     void shouldNumberMonthsAboveAverage() {
-        StatsService Service = new StatsService();
+        StatsService service = new StatsService();
         long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 5;
-        long actual = Service.numberMonthsAboveAverage(salesData);
+        long actual = service.numberMonthsAboveAverage(salesData);
         assertEquals(expected,actual);
     }
 
